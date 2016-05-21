@@ -1,4 +1,4 @@
-module Layout where
+module Layout exposing (view)
 
 import Html exposing (Html, div)
 import Counter
@@ -8,10 +8,11 @@ import Cookie
 
 -- View
 
-view : Signal.Address Counter.Action -> Counter.Model -> Html
-view address model =
-  div []
-  [ Counter.view address model
-  , Market.view address model
-  , Cookie.view address model
-  ]
+
+view : Counter.Model -> Html Counter.Action
+view model =
+    div []
+        [ Counter.view model
+        , Market.view model
+        , Cookie.view model
+        ]
